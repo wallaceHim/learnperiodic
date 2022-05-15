@@ -1,0 +1,351 @@
+/*========================================
+  Custom styles
+  ========================================*/
+/* line 4, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+body {
+  font: 'Open Sans', Helvetica, Arial, sans-serif;
+  background-color: gray; }
+
+/* line 9, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+p {
+  font-size: 18px; }
+
+/* line 13, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+h1, .modal_Header, h2, .primaryBtnText, h3 {
+  font-family: 'Raleway', sans-serif; }
+
+/* line 17, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+h1, .modal_Header {
+  font-size: 38px;
+  font-weight: 700; }
+
+/* line 22, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+h2, .primaryBtnText {
+  font-size: 24px;
+  font-weight: 600; }
+
+/*========================================
+  Colour
+  ======================================*/
+/*========================================
+  Buttons
+  ======================================*/
+/* line 71, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.primaryBtn, .menu_card {
+  position: relative;
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  border-radius: 50px;
+  background-image: linear-gradient(to right, #f8af49, #f8cc49);
+  padding: .5rem 2rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  will-change: transform, filter;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease-out; }
+  /* line 90, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+  .primaryBtn:focus, .menu_card:focus, .primaryBtn:active, .menu_card:active {
+    color: #151f23; }
+  /* line 95, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+  .primaryBtn:hover, .menu_card:hover {
+    color: #ffffff;
+    filter: brightness(1.05) contrast(1.05);
+    transform: scale(1.04);
+    -webkit-box-shadow: 0px 5px 20px 2px rgba(248, 175, 73, 0.75);
+    -moz-box-shadow: 0px 5px 20px 2px rgba(248, 175, 73, 0.75);
+    box-shadow: 0px 5px 20px 2px rgba(248, 175, 73, 0.75); }
+    /* line 98, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+    .primaryBtn:hover:before, .menu_card:hover:before {
+      bottom: -7px;
+      opacity: 1;
+      filter: blur(20px); }
+    /* line 113, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+    .primaryBtn:hover:active, .menu_card:hover:active {
+      filter: brightness(1) contrast(1);
+      transform: scale(0.95);
+      transition: all 0.15s ease-out;
+      -webkit-box-shadow: 0px 5px 20px 2px rgba(248, 175, 73, 0.75);
+      -moz-box-shadow: 0px 5px 20px 2px rgba(248, 175, 73, 0.75);
+      box-shadow: 0px 5px 20px 2px rgba(248, 175, 73, 0.75); }
+      /* line 114, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+      .primaryBtn:hover:active:before, .menu_card:hover:active:before {
+        bottom: 0;
+        filter: blur(10px) brightness(0.95);
+        transition: all 0.2s ease-out; }
+
+/* line 133, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.tertiaryBtn {
+  color: #ffffff;
+  text-decoration: underline; }
+
+/* line 138, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.tertiaryBtn:hover,
+.tertiaryBtn:active {
+  color: #f8cc49;
+  text-decoration: none; }
+
+/*========================================
+  Navigation Bar
+  ========================================*/
+/* line 159, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+#mainNav {
+  background-image: linear-gradient(rgba(21, 31, 35, 0.5), rgba(21, 31, 35, 0));
+  padding-left: 1.75rem;
+  padding-right: 1.75rem; }
+  @media only screen and (max-width: 767px) {
+    /* line 159, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+    #mainNav {
+      padding: 0.75rem; } }
+
+/* line 169, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+#navbarSupportedContent {
+  overflow: auto;
+  position: fixed;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 95%;
+  background: #151f23;
+  -webkit-box-shadow: 0px 15px 41px 0px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0px 15px 41px 0px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 15px 41px 0px rgba(0, 0, 0, 0.6);
+  -moz-border-radius: 0 0 15px 15px;
+  -webkit-border-radius: 0 0 15px 15px;
+  border-radius: 0 0 15px 15px;
+  color: #ffffff;
+  text-align: left;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 144px;
+  padding-bottom: 5rem; }
+  @media only screen and (max-width: 767px) {
+    /* line 169, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+    #navbarSupportedContent {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+      padding-top: 64px;
+      padding-bottom: 1.5rem; } }
+
+/* line 201, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.navbar-collapse.collapsing {
+  height: auto;
+  top: -100%;
+  -webkit-transition: top .3s ease;
+  -o-transition: top .3s ease;
+  -moz-transition: top .3s ease;
+  transition: top .3s ease; }
+  @media only screen and (max-width: 400px) {
+    /* line 201, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+    .navbar-collapse.collapsing {
+      top: -200%; } }
+
+/* line 215, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.navbar-collapse.show {
+  top: 0;
+  -webkit-transition: top .5s ease-out;
+  -o-transition: top .5s ease-out;
+  -moz-transition: top .5s ease-out;
+  transition: top .5s ease-out; }
+
+/* line 225, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.navbar-brand, #mainNav.contentActivated .navbar-toggler {
+  z-index: 2; }
+
+/* line 229, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.navbar-brand img, #mainNav.contentActivated .navbar-toggler img {
+  float: left;
+  height: 32px;
+  -webkit-transition: all ease .3s;
+  -o-transition: all ease .3s;
+  -moz-transition: all ease .3s;
+  transition: all .3s ease; }
+
+/* line 240, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.navbar-brand h1, #mainNav.contentActivated .navbar-toggler h1, .navbar-brand .modal_Header, #mainNav.contentActivated .navbar-toggler .modal_Header {
+  font-size: 24px;
+  padding-left: 7px;
+  margin-bottom: 0;
+  display: inline-block;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  transition: all .3s ease; }
+
+/* line 254, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+#mainNav.contentActivated .navbar-brand, #mainNav.contentActivated .navbar-toggler {
+  margin-top: 4rem;
+  margin-left: 2rem;
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  transition: all .5s ease; }
+  @media only screen and (max-width: 767px) {
+    /* line 254, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+    #mainNav.contentActivated .navbar-brand, #mainNav.contentActivated .navbar-toggler {
+      margin-top: 1rem;
+      margin-left: 0rem; } }
+
+/* line 269, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+#mainNav.contentActivated .navbar-brand img, #mainNav.contentActivated .navbar-toggler img {
+  height: 48px; }
+  @media only screen and (max-width: 767px) {
+    /* line 269, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+    #mainNav.contentActivated .navbar-brand img, #mainNav.contentActivated .navbar-toggler img {
+      height: 32px; } }
+
+/* line 277, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+#mainNav.contentActivated .navbar-brand h1, #mainNav.contentActivated .navbar-toggler h1, #mainNav.contentActivated .navbar-brand .modal_Header, #mainNav.contentActivated .navbar-toggler .modal_Header {
+  font-size: 38px; }
+  @media only screen and (max-width: 767px) {
+    /* line 277, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+    #mainNav.contentActivated .navbar-brand h1, #mainNav.contentActivated .navbar-toggler h1, #mainNav.contentActivated .navbar-brand .modal_Header, #mainNav.contentActivated .navbar-toggler .modal_Header {
+      font-size: 24px; } }
+
+/* line 290, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.navbar-toggler {
+  border: none;
+  background: transparent !important;
+  z-index: 2; }
+
+/* line 300, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.hamburger-bar, .menu_separator {
+  display: block;
+  margin-top: 6px;
+  width: 32px;
+  height: 3px;
+  background-color: #ffffff;
+  transition: all 0.2s; }
+
+/* line 312, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.menu_separator {
+  display: block;
+  height: 1px;
+  width: 90vw;
+  background-color: rgba(255, 255, 255, 0.25);
+  margin: 2rem 0; }
+
+/* line 323, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.navbar-toggler .top-bar {
+  margin-top: 0px;
+  transform: rotate(45deg);
+  transform-origin: 10% 10%; }
+
+/* line 329, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.navbar-toggler .middle-bar {
+  opacity: 0;
+  width: 16px; }
+
+/* line 334, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.navbar-toggler .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%; }
+
+/* line 339, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.navbar-toggler.collapsed .top-bar,
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0); }
+
+/* line 344, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1; }
+
+/* line 349, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.menu_card {
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 0;
+  margin: .75rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-shadow: 0px 15px 41px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 15px 41px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 15px 41px 0px rgba(0, 0, 0, 0.1); }
+  /* line 368, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+  .menu_card:hover {
+    text-decoration: none;
+    transform: scale(1.02);
+    -webkit-box-shadow: 0px 15px 41px 0px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0px 15px 41px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 15px 41px 0px rgba(0, 0, 0, 0.6); }
+    /* line 378, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+    .menu_card:hover:active {
+      transform: scale(0.98);
+      -webkit-box-shadow: 0px 15px 41px 0px rgba(0, 0, 0, 0.4);
+      -moz-box-shadow: 0px 15px 41px 0px rgba(0, 0, 0, 0.4);
+      box-shadow: 0px 15px 41px 0px rgba(0, 0, 0, 0.4); }
+
+/* line 391, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.menu_card .menu_cardContent {
+  background: rgba(0, 0, 0, 0.4);
+  position: relative;
+  padding: 1rem; }
+
+/* line 397, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.menu_cardContent .menu_cardHeader {
+  color: #ffffff; }
+
+/* line 401, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.menu_cardSubtitle {
+  color: #cbd2d6; }
+
+/* line 406, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.menu_card .menu_cardContent .menu_cardLink {
+  padding-top: 10rem;
+  color: #f8cc49; }
+
+/* line 411, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.menu_minalText {
+  color: #cbd2d6; }
+
+/*========================================
+  Main Area: Camera View
+  ========================================*/
+/* line 418, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.mainView {
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%; }
+
+/*========================================
+  Modal Box: Popup Tutorial
+  ========================================*/
+/* line 429, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.modal_img {
+  padding-top: 1rem;
+  width: 600px; }
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    /* line 429, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+    .modal_img {
+      width: 500px; } }
+  @media only screen and (max-width: 575px) {
+    /* line 429, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+    .modal_img {
+      width: 320px; } }
+
+/* line 441, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.modal_textContainer {
+  padding-top: 1rem;
+  background-color: #ffffff;
+  text-align: center; }
+
+/* line 458, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.modaal-wrapper {
+  background: rgba(21, 31, 35, 0.75);
+  z-index: 1040; }
+
+/* line 463, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.modaal-container {
+  margin: 0;
+  background-color: #cbd2d6;
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 1050; }
+
+/* line 471, Users/wallacehim/OneDrive - University of Kent/EL576 Second Year Project Team 2/Website Code - Overall UI (Wallace)/assets/css/main.scss */
+.modaal-content-container {
+  padding: 0px; }
+
+/*# sourceMappingURL=main.css.map */

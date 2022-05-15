@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="LearnPeriodic - Revolutionising education system with Web+AR Technology">
+    <meta name="keywords" content="Learn Periodic, Periodic Table, Chemistry">
+    <meta name="author" content="H.H. Mok, A. Palanimurugan, N. Williams, T. Chisenga">
+
+    <!-- Linking CSS Files -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/modaal.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Linking JavaScript file to the page -->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="assets/js/aframe-ar.js"></script>
+
+    <!-- Link favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/image/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/image/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/image/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/image/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/image/favicon/safari-pinned-tab.svg" color="#f8cc49">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--3D text package-->
+    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+    <title>Learn Periodic</title>
+</head>
+
+<body data-spy="scroll" data-target="#mainNav">
+    <!--=====================================
+        NAVIGATION BAR
+        ======================================-->
+    <nav class="navbar navbar-dark fixed-top" id="mainNav">
+        <!-- NavBar: Logo -->
+        <a class="navbar-brand" href="index.html">
+            <img src="assets/image/logo64.png" class="d-inline-block align-top" alt="Learn Periodic">
+            <h1>Learn Periodic</h1>
+        </a>
+
+        <!-- NavBar: Hamburger Toggler-->
+        <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="expandNavContent(this)">
+            <span class="hamburger-bar top-bar"></span>
+            <span class="hamburger-bar middle-bar"></span>
+            <span class="hamburger-bar bottom-bar"></span>
+        </button>
+
+        <!-- NavBar: Menu Content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" role="navigation">
+            <!-- Row: Cards -->
+            <div class="row">
+                <!-- Menu Card 1: Element Cards -->
+                <a href="#cards_mode" class="col-md-6 menu_card" data-image="assets/image/cards_tile_1.jpg" onclick="expandNavContent(this)">
+                    <div class="menu_cardContent">
+                        <h1 class="menu_cardHeader">Element Cards</h1>
+                        <p class="menu_cardSubtitle">By scanning the element cards, you can discover
+                            the properties of each element. </p>
+                        <h2 class="menu_cardLink">Launch AR <i class="fas fa-cube"></i></h2>
+                    </div>
+                </a>
+            </div>
+
+            <span class="menu_separator"></span>
+
+            <!-- Row: About and Website Credits -->
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>About</h2>
+                    <p>Learn Periodic is a revolutionary education application with Web+AR Technology. It provides a modern and enticing way for Key Stage 3 students to learn the periodic table.</p>
+                </div>
+                <div class="col-md-6">
+                    <h2>Website Credits</h2>
+                    <p>This website was made possible by the following plugins and software.
+                        <br>
+                        <a class="tertiaryBtn" href="https://aframe.io/" target="_blank">AFrame</a> /
+                        <a class="tertiaryBtn" href="https://getbootstrap.com/" target="_blank">Bootstrap</a> /
+                        <a class="tertiaryBtn" href="https://fonts.google.com/" target="_blank">Google Fonts</a> /
+                        <a class="tertiaryBtn" href="https://fontawesome.com/" target="_blank">FontAwesome</a> /
+                        <a class="tertiaryBtn" href="https://humaan.com/modaal/" target="_blank">Modaal</a>
+                    </p>
+                    <!-- This a-link is initializing the modal popup, CANNOT DELETE-->
+                    <a href="#popup_tutorial" class="inline"></a>
+                </div>
+                <div class="col-md-12 text-center pt-3">
+                    <p class="menu_minalText">Made with <i class="fas fa-heart"></i> by H.H. Mok, A. Palanimurugan, N. Williams, T. Chisenga<br>
+                        All Rights Reserved. &copy; 2020
+                    </p>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--=====================================
+        CAMERA VIEW
+        ======================================-->
+    <div class="container-fluid mainView" id="cards_mode">
+        <!--code to access the camera of the device-->
+        <!--NOTE: patternRatio v2 & v3=0.8; v4=0.9 -->
+        <a-scene embedded arjs='patternRatio: 0.5; sourceType: webcam;'>
+
+
+            <a-assets>
+                <!--Imported 3D models-->
+                <a-asset-item id="K-glb" src="/assets/GLB/Group%201%20-%20Potassium%20K.glb">
+                </a-asset-item>
+                <a-asset-item id="Na-glb" src="/assets/GLB/Group%201%20-%20Sodium%20Na.glb">
+                </a-asset-item>
+                <a-asset-item id="Br-glb" src="/assets/GLB/Group%207%20-%20Bromine%20Br.glb">
+                </a-asset-item>
+                <a-asset-item id="Ne-glb" src="/assets/GLB/Group%200%20-%20Neon%20Ne.glb">
+                </a-asset-item>
+                <a-asset-item id="He-glb" src="/assets/GLB/Group%200%20-%20Helium%20He.glb">
+                </a-asset-item>
+                <a-asset-item id="Cl-glb" src="/assets/GLB/Group%207%20-%20Chlorine%20Cl.glb">
+                </a-asset-item>
+                <!-- Fonts -->
+                <a-asset-item id="headerFont" src="/assets/font/Raleway_Bold.json"></a-asset-item>
+                <a-mixin id="ralewayBold" text="font: #headerFont"></a-mixin>
+                <a-asset-item id="bodyFont" src="/assets/font/Raleway%20SemiBold_Regular.json"></a-asset-item>
+                <a-mixin id="ralewaySemiBold" text="font: #bodyFont"></a-mixin>
+                <!--Panel Textures-->
+                <img id="potassiumPanel" src="/assets/image/PanelTextures/Potassium.png">
+                <img id="sodiumPanel" src="/assets/image/PanelTextures/Sodium.png">
+                <img id="chlorinePanel" src="/assets/image/PanelTextures/Chlorine.png">
+                <img id="brominePanel" src="/assets/image/PanelTextures/Bromine.png">
+                <img id="heliumPanel" src="/assets/image/PanelTextures/Helium.png">
+                <img id="neonPanel" src="/assets/image/PanelTextures/Neon.png">
+            </a-assets>
+
+
+            <!--Potassium-->
+            <a-marker preset="pattern" type="pattern" url="https://raw.githubusercontent.com/wallaceHim/learnperiodic/master/Element%20Symbol%20Marker%20v4/pattern-K.patt">
+
+                <a-entity text-geometry="value: Potassium; font: #headerFont" material="color: #5000FF " position="-1.3 3 0">
+                </a-entity>
+                <!--Display atom structure-->
+                <a-entity gltf-model="#K-glb" position="0 1 0" scale="10 10 10" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-entity>
+
+                <!--Information Panels-->
+                <a-box height="3" width="3" depth="0.1" rotation="0 -15 0" color="transparent" position="3.5 1 0" src="#potassiumPanel"></a-box>
+                <a-text value="Atomic Number: \n 19 \n \n  Atomic Mass: \n 39.0983 \n \n Natural state: \n Solid. \n\n Melting Point: \n 63.38 °C \n\n Boiling point: \n 759°C \n \n Interesting fact: \n Potassium's chemical symbol comes \nfrom the Latin word for alkali, kalium." position="-4.6 1 0.45" height="3" width="3" color="white" rotation="0 15 0"></a-text>
+
+
+                <a-box height="3" width="3" depth="0.1" rotation="0 15 0" color="transparent" position="-3.5 1 0" src="#potassiumPanel"></a-box>
+                <a-text value="Potassium is an alkali metal that can be \n easily cut with a knife and other bladed \n materials due to its soft and waxy texture. Approximately 2.1% of the earth’s crust \n comprises of Potassium, and like all other \n alkali metals, it is a very reactive element. \n It is also the eight most abundant metal on \n earth. Due to this, Potassium forms many \n vital compounds such as Potassium chloride \n (KCl), which is commonly used in fertilizers \n as a salt substitute as well as produce other chemicals. This element also reacts quickly \n with atmospheric oxygen, therefore creating potassium peroxide within seconds of \n exposure." position="2.3 1 -0.2" height="3" width="3" color="white" rotation="0 -15 0"></a-text>
+
+                <a-entity text-geometry="value: K; font: #headerFont" material="color: #5000FF " position=" -0.2 -0.5 0"></a-entity>
+
+            </a-marker>
+
+            <!--Sodium-->
+            <a-marker preset="pattern" type="pattern" url="https://raw.githubusercontent.com/wallaceHim/learnperiodic/master/Element%20Symbol%20Marker%20v4/pattern-Na.patt">
+
+                <a-entity text-geometry="value: Sodium; font: #headerFont" material="color: #F1EFF0" position="-1.3 3 0">
+                </a-entity>
+                <a-entity gltf-model="#Na-glb" position="0 1 0" scale="10 10 10" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"> </a-entity>
+
+                <a-box height="3" width="3" depth="0.1" rotation="0 -15 0" color="transparent" position="3.5 1 0" src="#sodiumPanel"></a-box>
+                <a-text value="Atomic Number: \n 11 \n \n  Atomic Mass: \n 22.98 \n \n Natural state: \n Solid. \n\n Melting Point: \n 22.98 °C \n\n Boiling point: \n 882.94°C \n \n Interesting fact: \n Sodium is used in the production \nof titanium, sodamide, sodium cyanide, \nsodium peroxide." position="-4.6 1 0.45" height="3" width="3" color="white" rotation="0 15 0"></a-text>
+
+
+                <a-box height="3" width="3" depth="0.1" rotation="0 15 0" color="transparent" position="-3.5 1 0" src="#sodiumPanel"></a-box>
+                <a-text value="Sodium is an alkali metal that is very \n reactive as it reacts faster when exposed \n to air or water. This element is often used in nuclear reactors as a heat exchanger \n as well as a reagent within the chemical \n industry. Sodium is the sixth most abundant \n metal on earth and comprises approximately \n 2.6% of the planet’s crust. Due to its reactive properties, the element reacts quickly with \n water, producing sodium hydroxide and \n hydrogen as a result. Metallic sodium is very responsive with atmospheric oxygen as it will result in the component losing its shiny appearance, resulting in a dark grey colour \n due to the oxide coating." position="2.3 1 -0.2" height="3" width="3" color="white" rotation="0 -15 0"></a-text>
+
+                <a-entity text-geometry="value: Na; font: #headerFont" material="color: #F1EFF0 " position=" -0.5 -0.5 0"></a-entity>
+
+            </a-marker>
+
+            <!--Chlorine-->
+            <a-marker preset="pattern" type="pattern" url="https://raw.githubusercontent.com/wallaceHim/learnperiodic/master/Element%20Symbol%20Marker%20v4/pattern-Cl.patt">
+                <a-entity text-geometry="value: Chlorine; font: #headerFont" material="color: #C58CC5" position="-1.3 3 0">
+                </a-entity>
+                <a-entity gltf-model="#Cl-glb" position="0 1 0" scale="10 10 10" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-entity>
+
+                <a-box height="3" width="3" depth="0.1" rotation="0 -15 0" color="transparent" position="3.5 1 0" src="#chlorinePanel"></a-box>
+                <a-text value="Atomic Number: \n 17 \n \n  Atomic Mass: \n 35.45 \n \n Natural state: \n Gas. \n\n Melting Point: \n melting point	−103 °C (−153 °F) \n\n Boiling point: \n −34 °C  \n \n Interesting fact: \n Due to its toxic properties, chlorine\n was used as a chemical weapon \nduring World War I" position="-4.6 1 0.45" height="3" width="3" color="white" rotation="0 15 0"></a-text>
+
+
+                <a-box height="3" width="3" depth="0.1" rotation="0 15 0" color="transparent" position="-3.5 1 0" src="#chlorinePanel"></a-box>
+                <a-text value="Chlorine is a halogen element; it is very toxic \n as well as corrosive and can irritate the eyes \n and the respiratory system. In nature, this \n element is usually found as a compound \n known as sodium chloride, which is a \n crystalline rock salt with almost no colour \n due to impurities. This element is commonly \n used to kill bacteria in swimming pools." position="2.3 1 -0.2" height="3" width="3" color="white" rotation="0 -15 0"></a-text>
+
+                <a-entity text-geometry="value: Cl; font: #headerFont" material="color: #C58CC5" position=" -0.5 -0.5 0"></a-entity>
+
+            </a-marker>
+
+            <!--Bromine-->
+            <a-marker preset="pattern" type="pattern" url="https://raw.githubusercontent.com/wallaceHim/learnperiodic/master/Element%20Symbol%20Marker%20v4/pattern-Br.patt">
+
+                <a-entity text-geometry="value: Bromine; font: #headerFont" material="color: #D22D26" position="-1.3 3 0">
+                </a-entity>
+                <a-entity gltf-model="#Br-glb" position="0 1 0" scale="10 10 10" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"> </a-entity>
+
+                <a-box height="3" width="3" depth="0.1" rotation="0 -15 0" color="transparent" position="3.5 1 0" src="#brominePanel"></a-box>
+
+                <a-text value="Atomic Number: \n 35 \n \n  Atomic Mass: \n 79.90 \n \n Natural state: \n Liquid. \n\n Melting Point: \n −7.2 °C \n\n Boiling point: \n 59 °C   \n \n Interesting fact: \n Bromine atoms are 40 to 100 times more \ndestructive in the ozone layer than chlorine \natoms." position="-4.6 1 0.45" height="3" width="3" color="white" rotation="0 15 0"></a-text>
+
+
+                <a-box height="3" width="3" depth="0.1" rotation="0 15 0" color="transparent" position="-3.5 1 0" src="#brominePanel"></a-box>
+                <a-text value="Bromine is a halogen element that is a \n deep-red and oily liquid that is able to give \n off a strong, sharp smell. This element is \n unique as it is the only non-metal that can \n exist in liquid form at temperature. \n Compounds that contain Bromine are used \n as flame retardants and are applied to \n furniture foam as well as plastic casings \n used for electronic devices to make less flammable. However, it is also very toxic and \n can irritate the eyes and throat as well as \n produce painful sores when in contact with \n the skin." position="2.3 1 -0.2" height="3" width="3" color="white" rotation="0 -15 0"></a-text>
+
+                <a-entity text-geometry="value: Br; font: #headerFont" material="color: #D22D26" position=" -0.5 -0.5 0"></a-entity>
+
+            </a-marker>
+
+            <!--Helium-->
+            <a-marker preset="pattern" type="pattern" url="https://raw.githubusercontent.com/wallaceHim/learnperiodic/master/Element%20Symbol%20Marker%20v4/pattern-He.patt">
+                <a-entity text-geometry="value: Helium; font: #headerFont" material="color: #878787  " position="-1.3 3 0">
+                </a-entity>
+                <a-entity gltf-model="#He-glb" position="0 1 0" scale="10 10 10" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"> </a-entity>
+
+                <a-box height="3" width="3" depth="0.1" rotation="0 -15 0" color="transparent" position="3.5 1 0" src="#heliumPanel"></a-box>
+                <a-text value="Atomic Number: \n 2 \n \n  Atomic Mass: \n 4. 003 \n \n Natural state: \n Gas. \n\n Melting Point: \n −268.9 ° \n\n Boiling point: \n 268.9°C \n \n Interesting fact: \n The boiling and freezing points of \n helium are lower than those of any other \n known substance" position="-4.6 1 0.45" height="3" width="3" color="white" rotation="0 15 0"></a-text>
+
+
+                <a-box height="3" width="3" depth="0.1" rotation="0 15 0" color="transparent" position="-3.5 1 0" src="#heliumPanel"></a-box>
+                <a-text value="Helium is a noble gas that is colourless and \n has no odour or taste. Approximately \n 0.0005% of the earth’s atmosphere is made \n of it. Due to its full outer shell structure, \n Helium is an inert gas and therefore does not \n react efficiently with other elements. \n However, it is commonly used in everyday \n life in blimps as well as balloons." position="2.3 1 -0.2" height="3" width="3" color="white" rotation="0 -15 0"></a-text>
+
+                <a-entity text-geometry="value: He; font: #headerFont" material="color: #878787  " position=" -0.5 -0.5 0"></a-entity>
+
+            </a-marker>
+
+            <!--Neon-->
+            <a-marker preset="pattern" type="pattern" url="https://raw.githubusercontent.com/wallaceHim/learnperiodic/master/Element%20Symbol%20Marker%20v4/pattern-Ne.patt">
+                <a-entity text-geometry="value: Neon; font: #headerFont" material="color: #FFF33B " position="-1.3 3 0">
+                </a-entity>
+                <a-entity gltf-model="#Ne-glb" position="0 1 0" scale="10 10 10" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+                    <!--
+                    <a-animation attribute="rotation" dur="10000" to="0 360 0" repeat="indefinite">
+                    </a-animation>
+-->
+
+                </a-entity>
+                <a-box height="3" width="3" depth="0.1" rotation="0 -15 0" color="transparent" position="3.5 1 0" src="#neonPanel"></a-box>
+                <a-text value="Atomic Number: \n 2 \n \n  Atomic Mass: \n 20.180 \n \n Natural state: \n Gas. \n\n Melting Point: \n −248.59°C \n\n Boiling point: \n -246.08°C \n \n Interesting fact: \n	Only red neon signs contain pure neon, \nothers contain other gasses to create \ndifferent colours" position="-4.6 1 0.45" height="3" width="3" color="white" rotation="0 15 0"></a-text>
+
+
+                <a-box height="3" width="3" depth="0.1" rotation="0 15 0" color="transparent" position="-3.5 1 0" src="#neonPanel"></a-box>
+                <a-text value="Neon is a noble gas element; therefore, it \n does not react with any other substances \n due to having a full outer shell electron \n structure. Since all noble gases can conduct electricity, this element is used to create luminescent ‘neon signs’ as it lights up when electrical current charges through them. \n However, it is also harmful as it can lead to dizziness, nausea, loss of consciousness \n and vomiting when inhaled. Due to its \n properties as an electrical conductor, it can \n be used to make high voltage indicators, \n diving equipment as well as lasers." position="2.3 1 -0.2" height="3" width="3" color="white" rotation="0 -15 0"></a-text>
+
+                <a-entity text-geometry="value: Ne; font: #headerFont" material="color: #FFF33B " position=" -0.8 -0.5 0"></a-entity>
+
+            </a-marker>
+
+
+
+        </a-scene>
+    </div>
+
+    <!--=====================================
+        POPUP TUTORIAL
+        ======================================-->
+    <div id="popup_tutorial" style="display:none;">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- POPUP TUTORIAL: Image Container -->
+                <div class="col-sm-12 modal_imageContainer">
+                    <img src="assets/image/tutorial.png" class="mx-auto d-block modal_img" alt="Tutorial">
+                </div>
+
+                <!-- POPUP TUTORIAL: Text Container -->
+                <div class="col-sm-12 modal_textContainer">
+                    <h2 class="modal_Header">Welcome to Learn Periodic!</h2>
+                    <p class="modal_Subtitle">To explore the properties of elements, scan the Element Card with your mobile device.</p>
+                    <button type="button" class="modal_close primaryBtn primaryBtnText">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.compatibility.min.js"></script>
+
+    <!-- Linking JavaScript file to the page -->
+    <script src="assets/js/modaal.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

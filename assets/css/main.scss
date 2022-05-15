@@ -1,0 +1,473 @@
+/*========================================
+  Custom styles
+  ========================================*/
+body {
+    font: 'Open Sans', Helvetica, Arial, sans-serif;
+    background-color: gray; //temp
+}
+
+p {
+    font-size: 18px;
+}
+
+h1, h2, h3{
+    font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+    font-size: 38px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+//h3  {
+//    font-size: 18px;
+//    font-weight: 500;
+//}
+
+$borderRadius: 15px;
+
+/*========================================
+  Colour
+  ======================================*/
+$primaryColour1: #f8cc49; //Maximum Yellow
+$primaryColour2: #e6624d; //Flamingo Red
+
+$secondaryColour1: #cbd2d6; //Light Grey
+$secondaryColour2: #151f23; //Dark Jungle Green
+$secondaryColour3: #ffffff; //White
+
+//colour for specific component
+$navBarBackground: linear-gradient(rgba(21, 31, 35, 0.5), rgba(21, 31, 35, 0));
+$modalBackdrop: rgba(21, 31, 35, 0.75); 
+$menuSeparatorColour: rgba(255, 255, 255, 0.25); 
+$btnColour: linear-gradient(to right, #f8af49 , $primaryColour1);
+
+//menu card
+$cardHeader: $secondaryColour3;
+$cardSubtitle: $secondaryColour1;
+$cardLink: $primaryColour1;
+
+//Shadow
+$heavyShadow: 0px 15px 41px 0px rgba(0,0,0,0.6);
+$mediumShadow: 0px 15px 41px 0px rgba(0,0,0,0.4);
+$lightShadow: 0px 15px 41px 0px rgba(0,0,0,0.1);
+
+$btnShadow-Hover: 0px 5px 20px 2px rgba(248,175,73,0.75);
+$btnShadow-Active: 0px 5px 20px 2px rgba(248,204,73,0.25);
+
+/*========================================
+  Buttons
+  ======================================*/
+//Primary Button
+.primaryBtnText{
+    @extend h2;
+}
+
+.primaryBtn {
+    position: relative;
+	display: inline-block;
+    
+    border: 0;
+    outline: 0;
+    border-radius: 50px;
+    background-image: $btnColour;
+    padding: .5rem 2rem;
+    margin-bottom: 1.5rem;
+    
+    //text on button
+    color: $secondaryColour3;
+    
+    //animation
+    will-change: transform, filter;
+    transform-style: preserve-3d;
+    transition: all 0.3s ease-out;
+        
+	&:focus,
+	&:active {
+		color: $secondaryColour2;
+	}
+    
+	&:hover {
+		color: $secondaryColour3;
+		
+        &:before {            
+            bottom: -7px;
+            opacity: 1;
+            filter: blur(20px);
+		}
+        
+        //brighten the background / scale up the button / add shadow
+        filter: brightness(1.05) contrast(1.05);            
+        transform: scale(1.04);
+        
+        -webkit-box-shadow: $btnShadow-Hover;
+        -moz-box-shadow: $btnShadow-Hover;
+        box-shadow: $btnShadow-Hover;
+		
+        
+        &:active {
+            &:before {
+				bottom: 0;
+				filter: blur(10px) brightness(0.95);
+				transition: all 0.2s ease-out;
+            }
+            
+            //restore button background / reduce size and shadow
+            filter: brightness(1) contrast(1);
+            transform: scale(0.95);
+            transition: all 0.15s ease-out;
+                
+            -webkit-box-shadow: $btnShadow-Hover;
+            -moz-box-shadow: $btnShadow-Hover;
+            box-shadow: $btnShadow-Hover;
+        }
+	}
+}
+
+//Tertiary Button: e.g. website credits
+.tertiaryBtn {
+    color: $secondaryColour3;
+    text-decoration: underline;
+}
+
+.tertiaryBtn:hover, 
+.tertiaryBtn:active {
+    color: $primaryColour1;
+    text-decoration: none;
+}
+
+/*========================================
+  Navigation Bar
+  ========================================*/
+//Logo varilables
+$imgLogo_expandX: 48px; //72
+$txtLogo_exapndPL:  $imgLogo_expandX + 14px;
+$imgLogo_expandX_mobile: 32px; 
+$txtLogo_exapndPL_mobile:  $imgLogo_expandX_mobile + 7px;
+
+//Submenu varilables
+$menuContent_PT: 64px + $imgLogo_expandX + 32px; //64px = 4rem: distination between top edge and logo
+$menuContent_PT_mobile: 32px + $imgLogo_expandX_mobile; //32px = 2rem: distination between top edge and logo
+
+
+//MainNav
+#mainNav {
+    background-image: $navBarBackground;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+    @media only screen and (max-width: 767px) {
+        padding: 0.75rem;
+    }
+}
+
+//SubMenu
+#navbarSupportedContent{
+    //submenu properties
+    overflow: auto;
+    position: fixed;
+    left: 0;
+    z-index: 1; //float on top of main content
+    width: 100%;
+    height: 95%;
+    background: $secondaryColour2;
+    -webkit-box-shadow: $heavyShadow;
+    -moz-box-shadow: $heavyShadow;
+    box-shadow: $heavyShadow;
+    -moz-border-radius: 0 0 $borderRadius $borderRadius;
+    -webkit-border-radius: 0 0 $borderRadius $borderRadius;
+    border-radius: 0 0 $borderRadius $borderRadius;
+    
+    //content properties
+    color: $secondaryColour3;
+    text-align: left;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: $menuContent_PT;
+    padding-bottom: 5rem;
+    @media only screen and (max-width: 767px) {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        padding-top: $menuContent_PT_mobile;
+        padding-bottom: 1.5rem;
+    } 
+}
+
+//SubMenu - animation
+.navbar-collapse.collapsing {
+    height: auto;
+    top: -100%; //original position of submenu
+    
+    -webkit-transition: top .3s ease;
+    -o-transition: top .3s ease;
+    -moz-transition: top .3s ease;
+    transition: top .3s ease;
+    
+    //testing
+    @media only screen and (max-width: 400px) {
+        top: -200%;
+    }
+}
+.navbar-collapse.show {
+    top: 0; //position of submenu when opened
+    
+    -webkit-transition: top .5s ease-out;
+    -o-transition: top .5s ease-out;
+    -moz-transition: top .5s ease-out;
+    transition: top .5s ease-out;  
+}
+
+//Logo
+.navbar-brand {
+    z-index: 2;
+}
+
+.navbar-brand img {
+    float: left;
+    height: 32px;
+    
+    //animation - restore
+    -webkit-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    transition: all .3s ease;
+}
+
+.navbar-brand h1 {
+
+    font-size: 24px;
+    padding-left: 7px;
+    margin-bottom: 0;
+    display: inline-block;
+    
+    //animation - restore
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+#mainNav.contentActivated .navbar-brand {
+    margin-top: 4rem;
+    margin-left: 2rem;
+    @media only screen and (max-width: 767px) {
+        margin-top: 1rem;
+        margin-left: 0rem;
+    }
+    
+    //animation - initialize
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+#mainNav.contentActivated .navbar-brand img {
+    height: $imgLogo_expandX; //size of image icon
+    
+    @media only screen and (max-width: 767px) {
+        height: $imgLogo_expandX_mobile; //size of image icon
+    }
+}
+
+#mainNav.contentActivated .navbar-brand h1 {
+    //display: block; //stacking the text
+    font-size: 38px; //size of text icon
+
+    //padding-left: $txtLogo_exapndPL;
+    
+    @media only screen and (max-width: 767px) {
+        font-size: 24px;
+        //padding-left: $txtLogo_exapndPL_mobile;
+    }
+}
+
+//Hamburger Toggler
+.navbar-toggler {
+    border: none;
+    background: transparent !important;
+    z-index: 2;
+}
+
+#mainNav.contentActivated .navbar-toggler{
+    @extend .navbar-brand;
+}
+
+.hamburger-bar {
+    display: block;
+    margin-top: 6px;
+	width: 32px; 
+	height: 3px;
+	background-color: $secondaryColour3;
+    
+    //animation
+	transition: all 0.2s;
+	
+}
+
+.menu_separator {
+    @extend .hamburger-bar;
+    
+    display: block;
+    height: 1px;
+    width: 90vw;
+    background-color: $menuSeparatorColour;
+    margin: 2rem 0;
+}
+
+//Hamburger Toggler - animation
+.navbar-toggler .top-bar {
+    margin-top: 0px;
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+}
+
+.navbar-toggler .middle-bar {
+    opacity: 0;
+    width: 16px; 
+}
+
+.navbar-toggler .bottom-bar {
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+}
+
+.navbar-toggler.collapsed .top-bar, 
+.navbar-toggler.collapsed .bottom-bar{
+    transform: rotate(0);
+}
+
+.navbar-toggler.collapsed .middle-bar {
+    opacity: 1;
+}
+
+//Menu Card: extended from .primaryBtn (see full class in v1.6)
+.menu_card {
+    @extend .primaryBtn;
+    
+    border-radius: $borderRadius; 
+    overflow: hidden;
+    padding: 0;
+    margin: .75rem;
+    
+    //card image
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    //NOTE: Background is set in HTML code
+    
+    //initial shadow
+    -webkit-box-shadow: $lightShadow;
+    -moz-box-shadow: $lightShadow;
+    box-shadow: $lightShadow;
+    
+	&:hover {
+        text-decoration: none;  
+        
+        //scale up the button / add shadow (brighten the background: in .primaryBtn class)
+        transform: scale(1.02);
+        
+        -webkit-box-shadow: $heavyShadow;
+        -moz-box-shadow: $heavyShadow;
+        box-shadow: $heavyShadow;
+		
+        &:active {            
+            //reduce size and shadow (restore button background: in .primaryBtn class)
+            transform: scale(0.98);
+                
+            -webkit-box-shadow: $mediumShadow;
+            -moz-box-shadow: $mediumShadow;
+            box-shadow: $mediumShadow;
+        }
+	}
+}
+
+
+//overlay of menu card
+.menu_card .menu_cardContent{
+    background: rgba(0,0,0,0.4);
+    position: relative;
+    padding: 1rem;
+}
+
+.menu_cardContent .menu_cardHeader{
+    color: $cardHeader;
+}
+
+.menu_cardSubtitle{
+    color: $cardSubtitle;
+}
+
+//link on menu card
+.menu_card .menu_cardContent .menu_cardLink{
+    padding-top: 10rem;
+    color: $cardLink;
+}
+
+.menu_minalText{
+    color: $secondaryColour1;
+}
+
+/*========================================
+  Main Area: Camera View
+  ========================================*/
+.mainView {
+    margin: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+/*========================================
+  Modal Box: Popup Tutorial
+  ========================================*/
+//NOTE: classes that start with .modal are custom-defined, those with .modaal are the deafult classes
+.modal_img{
+    padding-top: 1rem;
+    width: 600px;
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+        width: 500px;
+    }
+    
+    @media only screen and (max-width: 575px) {
+        width: 320px;
+    }
+}
+
+.modal_textContainer{
+    padding-top: 1rem;
+    background-color: $secondaryColour3;
+    text-align: center;
+}
+
+.modal_Header{
+    @extend h1;
+}
+
+.modal_Subtitle{
+}
+
+//close button inside a modal
+
+
+//Deafult Classes of Modaal
+.modaal-wrapper{
+    background: $modalBackdrop;
+    z-index: 1040;
+}
+
+.modaal-container{
+    margin: 0;
+    background-color: $secondaryColour1;
+    border-radius: $borderRadius;
+    overflow: hidden;
+    z-index: 1050;
+}
+
+.modaal-content-container{
+    padding:0px;
+}
