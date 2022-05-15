@@ -91,7 +91,7 @@
                 </div>
                 <div class="col-md-12 text-center pt-3">
                     <p class="menu_minalText">Made with <i class="fas fa-heart"></i> by H.H. Mok, A. Palanimurugan, N. Williams, T. Chisenga<br>
-                        All Rights Reserved. &copy; 2020
+                        All Rights Reserved. &copy; 2020 - 2022
                     </p>
                 </div>
             </div>
@@ -109,17 +109,17 @@
 
             <a-assets>
                 <!--Imported 3D models-->
-                <a-asset-item id="K-glb" src="/assets/GLB/Group%201%20-%20Potassium%20K.glb">
+                <a-asset-item id="K-glb" src="/assets/models_glb/Group%201%20-%20Potassium%20K.glb">
                 </a-asset-item>
-                <a-asset-item id="Na-glb" src="/assets/GLB/Group%201%20-%20Sodium%20Na.glb">
+                <a-asset-item id="Na-glb" src="/assets/models_glb/Group%201%20-%20Sodium%20Na.glb">
                 </a-asset-item>
-                <a-asset-item id="Br-glb" src="/assets/GLB/Group%207%20-%20Bromine%20Br.glb">
+                <a-asset-item id="Br-glb" src="/assets/models_glb/Group%207%20-%20Bromine%20Br.glb">
                 </a-asset-item>
-                <a-asset-item id="Ne-glb" src="/assets/GLB/Group%200%20-%20Neon%20Ne.glb">
+                <a-asset-item id="Ne-glb" src="/assets/models_glb/Group%200%20-%20Neon%20Ne.glb">
                 </a-asset-item>
-                <a-asset-item id="He-glb" src="/assets/GLB/Group%200%20-%20Helium%20He.glb">
+                <a-asset-item id="He-glb" src="/assets/models_glb/Group%200%20-%20Helium%20He.glb">
                 </a-asset-item>
-                <a-asset-item id="Cl-glb" src="/assets/GLB/Group%207%20-%20Chlorine%20Cl.glb">
+                <a-asset-item id="Cl-glb" src="/assets/models_glb/Group%207%20-%20Chlorine%20Cl.glb">
                 </a-asset-item>
                 <!-- Fonts -->
                 <a-asset-item id="headerFont" src="/assets/font/Raleway_Bold.json"></a-asset-item>
@@ -137,7 +137,7 @@
 
 
             <!--Potassium-->
-            <a-marker preset="pattern" type="pattern" url="https://raw.githubusercontent.com/wallaceHim/learnperiodic/master/Element%20Symbol%20Marker%20v4/pattern-K.patt">
+            <a-marker preset="pattern" type="pattern" url="assets/marker/pattern-K.patt">
 
                 <a-entity text-geometry="value: Potassium; font: #headerFont" material="color: #5000FF " position="-1.3 3 0">
                 </a-entity>
@@ -157,7 +157,7 @@
             </a-marker>
 
             <!--Sodium-->
-            <a-marker preset="pattern" type="pattern" url="https://raw.githubusercontent.com/wallaceHim/learnperiodic/master/Element%20Symbol%20Marker%20v4/pattern-Na.patt">
+            <a-marker preset="pattern" type="pattern" url="assets/marker/pattern-Na.patt">
 
                 <a-entity text-geometry="value: Sodium; font: #headerFont" material="color: #F1EFF0" position="-1.3 3 0">
                 </a-entity>
@@ -175,7 +175,7 @@
             </a-marker>
 
             <!--Chlorine-->
-            <a-marker preset="pattern" type="pattern" url="https://raw.githubusercontent.com/wallaceHim/learnperiodic/master/Element%20Symbol%20Marker%20v4/pattern-Cl.patt">
+            <a-marker preset="pattern" type="pattern" url="assets/marker/pattern-Cl.patt">
                 <a-entity text-geometry="value: Chlorine; font: #headerFont" material="color: #C58CC5" position="-1.3 3 0">
                 </a-entity>
                 <a-entity gltf-model="#Cl-glb" position="0 1 0" scale="10 10 10" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-entity>
@@ -192,7 +192,7 @@
             </a-marker>
 
             <!--Bromine-->
-            <a-marker preset="pattern" type="pattern" url="https://raw.githubusercontent.com/wallaceHim/learnperiodic/master/Element%20Symbol%20Marker%20v4/pattern-Br.patt">
+            <a-marker preset="pattern" type="pattern" url="assets/marker/pattern-Br.patt">
 
                 <a-entity text-geometry="value: Bromine; font: #headerFont" material="color: #D22D26" position="-1.3 3 0">
                 </a-entity>
@@ -211,7 +211,7 @@
             </a-marker>
 
             <!--Helium-->
-            <a-marker preset="pattern" type="pattern" url="https://raw.githubusercontent.com/wallaceHim/learnperiodic/master/Element%20Symbol%20Marker%20v4/pattern-He.patt">
+            <a-marker preset="pattern" type="pattern" url="assets/marker/pattern-He.patt">
                 <a-entity text-geometry="value: Helium; font: #headerFont" material="color: #878787  " position="-1.3 3 0">
                 </a-entity>
                 <a-entity gltf-model="#He-glb" position="0 1 0" scale="10 10 10" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"> </a-entity>
@@ -228,7 +228,7 @@
             </a-marker>
 
             <!--Neon-->
-            <a-marker preset="pattern" type="pattern" url="https://raw.githubusercontent.com/wallaceHim/learnperiodic/master/Element%20Symbol%20Marker%20v4/pattern-Ne.patt">
+            <a-marker preset="pattern" type="pattern" url="assets/marker/pattern-Ne.patt">
                 <a-entity text-geometry="value: Neon; font: #headerFont" material="color: #FFF33B " position="-1.3 3 0">
                 </a-entity>
                 <a-entity gltf-model="#Ne-glb" position="0 1 0" scale="10 10 10" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
